@@ -125,9 +125,3 @@ npm run dev
 ```
 Frontend runs on: `http://localhost:5173`
 
-### Run Backend Automated Test Suites
-```bash
-cd backend
-.\venv\Scripts\python.exe -m unittest discover -s . -p "test_*.py"
-```
-Runs 27 automated tests across all phases with 100% pass rate.
