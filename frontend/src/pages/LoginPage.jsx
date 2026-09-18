@@ -23,10 +23,19 @@ export default function LoginPage() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [selectedPersona, setSelectedPersona] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+
+  const handlePersonaChange = (e) => {
+    const persona = demoAccounts.find((account) => account.username === e.target.value);
+    setSelectedPersona(persona?.username || '');
+    setUsername(persona?.username || '');
+    setPassword(persona?.password || '');
+    setError(null);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -113,6 +122,25 @@ export default function LoginPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Explicit role selector for demo personas */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Choose Role
+              </label>
+              <select
+                value={selectedPersona}
+                onChange={handlePersonaChange}
+                className="block w-full px-3.5 py-2.5 bg-slate-900/80 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+              >
+                <option value="">Select a demo role</option>
+                {demoAccounts.map((account) => (
+                  <option key={account.username} value={account.username}>
+                    {account.role} - {account.username}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Username / Email */}
             <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">

@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (
+  import.meta.env.PROD
+    ? 'https://landsetu-3-xfpv.onrender.com/api'
+    : 'http://localhost:8000/api'
+);
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -515,7 +519,7 @@ function handleApiError(error, ulpin = '') {
     if (status === 409) customErr.isConflict = true;
     throw customErr;
   } else if (error.request) {
-    const networkErr = new Error('Unable to connect to LandSetu backend server. Please verify the server is running on port 8000.');
+    const networkErr = new Error(`Unable to connect to the LandSetu backend at ${API_BASE_URL}.`);
     networkErr.isNetworkError = true;
     throw networkErr;
   } else {

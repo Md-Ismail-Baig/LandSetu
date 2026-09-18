@@ -1,7 +1,12 @@
 import React from 'react';
 import { AlertCircle, ServerCrash, SearchX, RefreshCw } from 'lucide-react';
 
-const backendHealthUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'}/health`;
+const backendBaseUrl = import.meta.env.VITE_API_BASE_URL || (
+  import.meta.env.PROD
+    ? 'https://landsetu-3-xfpv.onrender.com/api'
+    : 'http://localhost:8000/api'
+);
+const backendHealthUrl = `${backendBaseUrl}/health`;
 
 export default function ErrorMessage({ error, onRetry, ulpin }) {
   const isNotFound = error?.isNotFound || error?.status === 404;
