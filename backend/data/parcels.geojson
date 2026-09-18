@@ -1,0 +1,127 @@
+{
+  "type": "FeatureCollection",
+  "name": "LandSetu Demo Parcels",
+  "disclaimer": "All geometries are fictional demo data created for the Smart India Hackathon 2026 prototype.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ulpin": "KA0102030405",
+        "survey_number": "45/2A",
+        "owner_name": "Ramesh Kumar",
+        "district": "Bangalore Urban",
+        "village": "Hulimavu",
+        "land_type": "Agricultural",
+        "area_hectares": 2.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.5946, 12.8900],
+            [77.5976, 12.8900],
+            [77.5976, 12.8930],
+            [77.5946, 12.8930],
+            [77.5946, 12.8900]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ulpin": "KA0203040506",
+        "survey_number": "112/1B",
+        "owner_name": "Lakshmi Devi",
+        "district": "Mysore",
+        "village": "Yelwal",
+        "land_type": "Residential",
+        "area_hectares": 0.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.6100, 12.3200],
+            [76.6120, 12.3200],
+            [76.6120, 12.3215],
+            [76.6100, 12.3215],
+            [76.6100, 12.3200]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ulpin": "KA0304050607",
+        "survey_number": "78/3C",
+        "owner_name": "Ahmed Khan",
+        "district": "Hubli-Dharwad",
+        "village": "Tarihal",
+        "land_type": "Commercial",
+        "area_hectares": 1.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [75.1000, 15.3600],
+            [75.1025, 15.3600],
+            [75.1025, 15.3620],
+            [75.1000, 15.3620],
+            [75.1000, 15.3600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ulpin": "KA0405060708",
+        "survey_number": "201/4D",
+        "owner_name": "Priya Sharma",
+        "district": "Mangalore",
+        "village": "Konaje",
+        "land_type": "Agricultural",
+        "area_hectares": 3.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [74.8800, 12.8100],
+            [74.8840, 12.8100],
+            [74.8840, 12.8140],
+            [74.8800, 12.8140],
+            [74.8800, 12.8100]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ulpin": "KA0506070809",
+        "survey_number": "55/5E",
+        "owner_name": "Venkatesh Gowda",
+        "district": "Belgaum",
+        "village": "Kangrali",
+        "land_type": "Industrial",
+        "area_hectares": 5.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [74.5000, 15.8500],
+            [74.5050, 15.8500],
+            [74.5050, 15.8540],
+            [74.5000, 15.8540],
+            [74.5000, 15.8500]
+          ]
+        ]
+      }
+    }
+  ]
+}
