@@ -8,8 +8,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+
   server: {
     port: 5173,
     host: true,
+  },
+
+  preview: {
+    allowedHosts: ['landsetu-5.onrender.com'],
   },
 })
