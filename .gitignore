@@ -15,7 +15,6 @@ venv/
 # Environment
 .env
 .env.local
-.env.production
 
 # Build output
 dist/
