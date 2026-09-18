@@ -406,6 +406,7 @@ export const validateSubdivision = async (parentUlpin, data) => {
 export const approveSubdivision = async (identifier, remarks = '') => {
   try {
     const response = await apiClient.post(`/parcel-subdivision/${encodeURIComponent(identifier)}/approve`, {
+      decision: 'APPROVED',
       remarks: remarks || 'Subdivision application approved.',
     });
     return response.data;
@@ -416,7 +417,10 @@ export const approveSubdivision = async (identifier, remarks = '') => {
 
 export const rejectSubdivision = async (identifier, remarks) => {
   try {
-    const response = await apiClient.post(`/parcel-subdivision/${encodeURIComponent(identifier)}/reject`, { remarks });
+    const response = await apiClient.post(`/parcel-subdivision/${encodeURIComponent(identifier)}/reject`, {
+      decision: 'REJECTED',
+      remarks,
+    });
     return response.data;
   } catch (error) {
     handleApiError(error);

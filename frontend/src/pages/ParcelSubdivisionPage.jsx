@@ -37,9 +37,9 @@ export default function ParcelSubdivisionPage() {
     num_children: 2,
     reason: 'Family partitioning and inheritance division of agricultural holding.',
     child1_owner: 'Ramesh Gowda (Child 01)',
-    child1_acres: '2.5',
+    child1_acres: '3.09',
     child2_owner: 'Suresh Gowda (Child 02)',
-    child2_acres: '2.5',
+    child2_acres: '3.09',
     child3_owner: 'Priya Gowda (Child 03)',
     child3_acres: '1.0',
   });
@@ -72,12 +72,12 @@ export default function ParcelSubdivisionPage() {
     setFormError(null);
     try {
       const proposed = [
-        { owner_name: formData.child1_owner, area_acres: parseFloat(formData.child1_acres) || 1.0 },
-        { owner_name: formData.child2_owner, area_acres: parseFloat(formData.child2_acres) || 1.0 },
+        { child_index: 1, owner_name: formData.child1_owner, area_acres: parseFloat(formData.child1_acres) || 1.0 },
+        { child_index: 2, owner_name: formData.child2_owner, area_acres: parseFloat(formData.child2_acres) || 1.0 },
       ];
 
       if (formData.num_children === 3) {
-        proposed.push({ owner_name: formData.child3_owner, area_acres: parseFloat(formData.child3_acres) || 1.0 });
+        proposed.push({ child_index: 3, owner_name: formData.child3_owner, area_acres: parseFloat(formData.child3_acres) || 1.0 });
       }
 
       const payload = {
