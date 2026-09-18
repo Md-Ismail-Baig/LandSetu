@@ -17,7 +17,11 @@ def get_db_path():
 
 def get_connection():
     """Create and return a new SQLite connection with row_factory enabled."""
-    conn = sqlite3.connect(get_db_path())
+    database_path = get_db_path()
+    database_directory = os.path.dirname(database_path)
+    if database_directory:
+        os.makedirs(database_directory, exist_ok=True)
+    conn = sqlite3.connect(database_path)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")

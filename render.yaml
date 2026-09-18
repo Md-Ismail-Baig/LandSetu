@@ -7,11 +7,23 @@ services:
     env: python
     buildCommand: "cd backend && pip install -r requirements.txt"
     startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    disk:
+      name: landsetu-data
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: CORS_ORIGINS
-        value: "*"
+        fromService:
+          type: static
+          name: landsetu-frontend
+          property: url
+      - key: DATABASE_PATH
+        value: /var/data/landsetu.db
+      - key: JWT_SECRET_KEY
+        generateValue: true
       - key: DEBUG
         value: "false"
 

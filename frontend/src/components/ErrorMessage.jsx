@@ -1,6 +1,8 @@
 import React from 'react';
 import { AlertCircle, ServerCrash, SearchX, RefreshCw } from 'lucide-react';
 
+const backendHealthUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'}/health`;
+
 export default function ErrorMessage({ error, onRetry, ulpin }) {
   const isNotFound = error?.isNotFound || error?.status === 404;
   const isNetwork = error?.isNetworkError;
@@ -54,7 +56,7 @@ export default function ErrorMessage({ error, onRetry, ulpin }) {
               <span className="font-semibold block mb-1">Troubleshooting Checklist:</span>
               <ul className="list-disc list-inside space-y-0.5 text-red-900/90">
                 <li>Verify FastAPI server is running: <code className="bg-red-100 px-1 py-0.5 rounded font-mono">venv\Scripts\python.exe main.py</code></li>
-                <li>Check backend health at: <a href="http://localhost:8000/api/health" target="_blank" rel="noreferrer" className="underline font-mono">http://localhost:8000/api/health</a></li>
+                <li>Check backend health at: <a href={backendHealthUrl} target="_blank" rel="noreferrer" className="underline font-mono">{backendHealthUrl}</a></li>
               </ul>
             </div>
           )}
