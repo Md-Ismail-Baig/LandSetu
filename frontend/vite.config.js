@@ -15,6 +15,6 @@ export default defineConfig({
   },
 
   preview: {
-    allowedHosts: ['landsetu-5.onrender.com'],
+    allowedHosts: ['landsetu-6.onrender.com'],
   },
 })
