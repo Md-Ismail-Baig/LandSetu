@@ -88,6 +88,12 @@ async def root():
     }
 
 
+@app.head("/", include_in_schema=False)
+async def root_head():
+    """Respond to platform port probes at the root path."""
+    return None
+
+
 # --- Startup ---
 
 @app.on_event("startup")
