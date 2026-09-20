@@ -57,7 +57,9 @@ export default function LoginPage() {
         navigate('/dashboard');
       }
     } catch (err) {
-      setError(err.message || 'Invalid username or password. Please try again.');
+      if (!err.isNetworkError) {
+        setError(err.message || 'Invalid username or password. Please try again.');
+      }
     } finally {
       setSubmitting(false);
     }
@@ -72,7 +74,9 @@ export default function LoginPage() {
       await login(demoUser.username, demoUser.password);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.message || 'Demo login failed.');
+      if (!err.isNetworkError) {
+        setError(err.message || 'Demo login failed.');
+      }
     } finally {
       setSubmitting(false);
     }

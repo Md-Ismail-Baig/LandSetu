@@ -519,7 +519,8 @@ function handleApiError(error, ulpin = '') {
     if (status === 409) customErr.isConflict = true;
     throw customErr;
   } else if (error.request) {
-    const networkErr = new Error(`Unable to connect to the LandSetu backend at ${API_BASE_URL}.`);
+    console.error('LandSetu API request failed:', error.message);
+    const networkErr = new Error('The service is temporarily unavailable. Please try again.');
     networkErr.isNetworkError = true;
     throw networkErr;
   } else {

@@ -126,7 +126,9 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('landsetu_user', JSON.stringify(data.user));
       return data.user;
     } catch (err) {
-      setError(err.message || 'Login failed. Please verify credentials.');
+      if (!err.isNetworkError) {
+        setError(err.message || 'Login failed. Please verify credentials.');
+      }
       throw err;
     } finally {
       setLoading(false);

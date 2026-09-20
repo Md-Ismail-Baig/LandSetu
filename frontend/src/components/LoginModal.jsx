@@ -17,7 +17,9 @@ export default function LoginModal({ isOpen, onClose }) {
       await login(username, password);
       onClose();
     } catch (err) {
-      setFormError(err.message || 'Login failed');
+      if (!err.isNetworkError) {
+        setFormError(err.message || 'Login failed');
+      }
     }
   };
 
@@ -29,7 +31,9 @@ export default function LoginModal({ isOpen, onClose }) {
       await switchDemoUser(account.username);
       onClose();
     } catch (err) {
-      setFormError(err.message || 'Failed to switch user account');
+      if (!err.isNetworkError) {
+        setFormError(err.message || 'Failed to switch user account');
+      }
     }
   };
 
